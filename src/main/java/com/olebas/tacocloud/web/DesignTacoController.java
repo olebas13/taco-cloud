@@ -11,6 +11,7 @@ import javax.validation.Valid;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static com.olebas.tacocloud.Ingredient.*;
 
@@ -36,8 +37,7 @@ public class DesignTacoController {
 
         Type[] types = Ingredient.Type.values();
         for (Type type : types) {
-            model.addAttribute(type.toString().toLowerCase(),
-                    filterByType(ingredients, type));
+            model.addAttribute(type.toString().toLowerCase(), filterByType(ingredients, type));
         }
 
         model.addAttribute("design", new Taco());
