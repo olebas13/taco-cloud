@@ -1,4 +1,4 @@
-package com.olebas.tacocloud;
+package com.olebas.tacocloud.tacos;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
