@@ -3,7 +3,6 @@ package com.olebas.tacocloud.tacos.web;
 import com.olebas.tacocloud.tacos.Ingredient;
 import com.olebas.tacocloud.tacos.Taco;
 import com.olebas.tacocloud.tacos.data.IngredientRepository;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +16,6 @@ import java.util.stream.Collectors;
 
 import static com.olebas.tacocloud.tacos.Ingredient.*;
 
-@Slf4j
 @Controller
 @RequestMapping("/design")
 @SessionAttributes("order")
@@ -48,9 +46,6 @@ public class DesignTacoController {
         if (errors.hasErrors()) {
             return "design";
         }
-
-        log.info("Processing design: " + design);
-
         return "redirect:/orders/current";
     }
 
