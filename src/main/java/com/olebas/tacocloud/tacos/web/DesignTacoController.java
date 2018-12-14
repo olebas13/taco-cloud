@@ -1,8 +1,10 @@
 package com.olebas.tacocloud.tacos.web;
 
 import com.olebas.tacocloud.tacos.Ingredient;
+import com.olebas.tacocloud.tacos.Order;
 import com.olebas.tacocloud.tacos.Taco;
 import com.olebas.tacocloud.tacos.data.IngredientRepository;
+import com.olebas.tacocloud.tacos.data.TacoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,10 +24,22 @@ import static com.olebas.tacocloud.tacos.Ingredient.*;
 public class DesignTacoController {
 
     private final IngredientRepository ingredientRepo;
+    private TacoRepository designRepo;
 
     @Autowired
-    public DesignTacoController(IngredientRepository ingredientRepo) {
+    public DesignTacoController(IngredientRepository ingredientRepo, TacoRepository designRepo) {
         this.ingredientRepo = ingredientRepo;
+        this.designRepo = designRepo;
+    }
+
+    @ModelAttribute(name = "order")
+    public Order order() {
+        return new Order();
+    }
+
+    @ModelAttribute(name = "taco")
+    public Taco taco() {
+        return new Taco();
     }
 
     @GetMapping
@@ -42,10 +56,14 @@ public class DesignTacoController {
     }
 
     @PostMapping
-    public String processDesign(@Valid @ModelAttribute("design") Taco design, Errors errors, Model model) {
+    public String processDesign(@Valid Taco design, Errors errors, @ModelAttribute Order order) {
         if (errors.hasErrors()) {
             return "design";
         }
+
+        Taco saved = designRepo.save(design);
+        order.addDesign(saved);
+
         return "redirect:/orders/current";
     }
 

@@ -38,4 +38,8 @@ public class Order {
     private String ccCVV;
 
     private Date placedAt;
+
+    public void addDesign(Taco design) {
+
+    }
 }
