@@ -1,9 +1,13 @@
 package com.olebas.tacocloud;
 
+import com.olebas.tacocloud.tacos.data.IngredientRepository;
+import com.olebas.tacocloud.tacos.data.OrderRepository;
+import com.olebas.tacocloud.tacos.data.TacoRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -17,6 +21,15 @@ public class HomeControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
+
+    @MockBean
+    private IngredientRepository ingredientRepository;
+
+    @MockBean
+    private TacoRepository tacoRepository;
+
+    @MockBean
+    private OrderRepository orderRepository;
 
     @Test
     public void testHomePage() throws Exception {
