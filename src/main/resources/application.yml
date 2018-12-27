@@ -1,0 +1,14 @@
+spring:
+  profiles: prod
+
+  datasource:
+    url: jdbc:mysql://localhost/tacocloud
+    username: tacouser
+    password: tacopassword
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+logging:
+  path: /var/logs/
+  file: TacoCloud.log
+  level:
+    tacos: WARN
