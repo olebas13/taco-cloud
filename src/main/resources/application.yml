@@ -1,3 +1,19 @@
+#spring:
+#  security:
+#    user:
+#      name: buzz
+#      password: infinity
+
+taco:
+  orders:
+    pageSize: 10
+
+
+  discount:
+    codes:
+      abcdef: 10
+
+---
 spring:
   profiles: prod
 
@@ -5,18 +21,7 @@ spring:
     url: jdbc:mysql://localhost/tacocloud
     username: tacouser
     password: tacopassword
-    driver-class-name: com.mysql.cj.jdbc.Driver
 
 logging:
-  path: /var/logs/
-  file: TacoCloud.log
   level:
     tacos: WARN
-
-taco:
-  orders:
-    pageSize: 10
-
-  discount:
-    codes:
-      abcdef: 10
