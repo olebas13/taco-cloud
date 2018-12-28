@@ -12,3 +12,11 @@ logging:
   file: TacoCloud.log
   level:
     tacos: WARN
+
+taco:
+  orders:
+    pageSize: 10
+
+  discount:
+    codes:
+      abcdef: 10
