@@ -1,4 +1,4 @@
-package com.olebas.tacocloud;
+package com.olebas.tacocloud.tacos;
 
 import com.olebas.tacocloud.tacos.data.IngredientRepository;
 import com.olebas.tacocloud.tacos.data.OrderRepository;
